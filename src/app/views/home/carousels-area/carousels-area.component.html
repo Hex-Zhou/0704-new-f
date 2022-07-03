@@ -1,0 +1,19 @@
+<swiper
+    class="rounded-3 swiper"
+    [slidesPerView]="1"
+    [spaceBetween]="50"
+    [navigation]="true"
+    [pagination]="{ clickable: true }">
+    <!-- only number -->
+    <ng-template *ngFor="let item of numbers" swiperSlide>
+        <div class="bg-warning d-flex w-100 h-100 fajc pointer">
+            <h1 class="text-center text-dark">{{ item }}</h1>
+        </div>
+    </ng-template>
+    <!-- picture -->
+    <ng-template *ngFor="let item of carousels" swiperSlide>
+        <div class="bg-warning w-100 h-100 pointer">
+            <img class="w-100 h-100" src="{{ item.pic | imgFullPipe }}" alt="輪播圖" />
+        </div>
+    </ng-template>
+</swiper>

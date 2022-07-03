@@ -1,0 +1,21 @@
+<swiper [slidesPerView]="card_display_number" [spaceBetween]="50" [loop]="true">
+    <ng-container *ngFor="let item of plans">
+        <ng-template swiperSlide>
+            <app-ikea-card hostClass="min-h-300px d-flex flex-column justify-content-between p-3">
+                <h1 header class="text-center">{{ item.name }} {{ item.money }}元</h1>
+                <div content class="justify-content-center d-flex flex-column text-center">
+                    <ul *ngIf="_hasNumberInArray(item.function, 1)">
+                        <li>行事曆功能</li>
+                        <li>3大特色</li>
+                        <li>6大功能</li>
+                        <li>5大利基</li>
+                    </ul>
+                    <ul *ngIf="_hasNumberInArray(item.function, 2)">
+                        <li>專屬顧問</li>
+                    </ul>
+                </div>
+                <div footer class="fajc"><a class="btn btn-warning">我要訂閲</a></div>
+            </app-ikea-card>
+        </ng-template>
+    </ng-container>
+</swiper>

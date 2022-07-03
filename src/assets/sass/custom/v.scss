@@ -1,0 +1,97 @@
+/**
+* 功能:斷點
+*/
+
+$ph: 375px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+$breakpoints: (
+    xs: 0,
+    ph: $ph,
+    sm: $sm,
+    md: $md,
+    lg: $lg,
+    xl: $xl,
+    xxl: $xxl,
+) !default;
+/**
+* 功能:顏色
+*/
+$primary: #3699ff;
+$success: #1ec3bc;
+$warning: #ffa800;
+$dark: #181c32;
+$danger: #ff246a;
+/**
+* 功能:尺寸
+*/
+$pixel-size: (
+    10: 10px,
+    20: 20px,
+    25: 25px,
+    30: 30px,
+    40: 40px,
+    50: 50px,
+    60: 60px,
+    70: 70px,
+    80: 80px,
+    90: 90px,
+    100: 100px,
+    110: 110px,
+    120: 120px,
+    130: 130px,
+    140: 140px,
+    150: 150px,
+    160: 160px,
+    170: 170px,
+    180: 180px,
+    190: 190px,
+    200: 200px,
+    210: 210px,
+    220: 220px,
+    230: 230px,
+    240: 240px,
+    250: 250px,
+    260: 260px,
+    270: 270px,
+    280: 280px,
+    290: 290px,
+    300: 300px,
+    310: 310px,
+    320: 320px,
+    330: 330px,
+    340: 340px,
+    350: 350px,
+    375: 375px,
+    400: 400px,
+    425: 425px,
+    450: 450px,
+    475: 475px,
+    500: 500px,
+    550: 550px,
+    600: 600px,
+    650: 650px,
+    700: 700px,
+    750: 750px,
+    800: 800px,
+    850: 850px,
+    900: 900px,
+    950: 950px,
+    1000: 1000px,
+);
+/**
+* 功能:斷點引用
+*/
+@mixin bk_min($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+@mixin bk_max($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}

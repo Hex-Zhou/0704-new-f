@@ -1,0 +1,11 @@
+<div [class]="'rounded _ikea_card ' + hostClass">
+    <app-ikea-card-header>
+        <ng-content header select="[header]"></ng-content>
+    </app-ikea-card-header>
+    <app-ikea-card-content>
+        <ng-content content select="[content]"></ng-content>
+    </app-ikea-card-content>
+    <app-ikea-card-footer>
+        <ng-content footer select="[footer]"> </ng-content>
+    </app-ikea-card-footer>
+</div>

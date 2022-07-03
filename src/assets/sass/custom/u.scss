@@ -1,0 +1,172 @@
+@import 'v';
+/**
+* 功能:breakpoints + pixel-size 
+*/ /**
+* 功能:pixel-size
+*/
+@each $key, $val in $pixel-size {
+    .w-#{$key}px {
+        width: $val;
+    }
+    .h-#{$key}px {
+        height: $val;
+    }
+    .max-h-#{$key}px {
+        max-height: $val;
+    }
+    .max-w-#{$key}px {
+        max-width: $val;
+    }
+    .min-h-#{$key}px {
+        min-height: $val;
+    }
+    .min-w-#{$key}px {
+        min-width: $val;
+    }
+    .mmm-h-#{$key}px {
+        max-height: $val;
+        min-height: $val;
+    }
+    .mmm-w-#{$key}px {
+        max-width: $val;
+        min-width: $val;
+    }
+}
+/**
+* 功能: d-flex 全部置中
+*/
+.fajc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mmm-h-auto {
+    min-height: 0;
+    max-height: none;
+}
+.mmm-w-auto {
+    min-width: 0;
+    max-width: none;
+}
+@each $b-key, $b-val in $breakpoints {
+    @each $s-key, $s-val in $pixel-size {
+        /**
+    * 功能:w-lg-50px
+    */
+        .w-#{$b-key}-#{$s-key}px {
+            @include bk_min($b-val) {
+                width: $s-val;
+            }
+        }
+        /**
+    * 功能:h-lg-100px
+    */
+        .h-#{$b-key}-#{$s-key}px {
+            @include bk_min($b-val) {
+                height: $s-val;
+            }
+        }
+        /**
+    * 功能:max-h-lg-100px
+    */
+        .max-h-#{$b-key}-#{$s-key}px {
+            @include bk_min($b-val) {
+                max-height: $s-val;
+            }
+        }
+        /**
+    * 功能:max-w-lg-100px
+    */
+        .max-w-#{$b-key}-#{$s-key}px {
+            @include bk_min($b-val) {
+                max-width: $s-val;
+            }
+        }
+        /**
+    * 功能:min-w-lg-100px
+    */
+        .min-w-#{$b-key}-#{$s-key}px {
+            @include bk_min($b-val) {
+                min-width: $s-val;
+            }
+        }
+        /**
+    * 功能:min-h-lg-100px
+    */
+        .min-h-#{$b-key}-#{$s-key}px {
+            @include bk_min($b-val) {
+                max-height: $s-val;
+            }
+        }
+        /**
+    * 功能:mmm-h-lg-100px 
+    */
+        .mmm-h-#{$b-key}-#{$s-key}px {
+            @include bk_min($b-val) {
+                max-height: $s-val;
+                min-height: $s-val;
+            }
+        }
+        /**
+    * 功能:mmm-w-lg-100px 
+    */
+        .mmm-w-#{$b-key}-#{$s-key}px {
+            @include bk_min($b-val) {
+                max-width: $s-val;
+                min-width: $s-val;
+            }
+        }
+    }
+}
+/**
+* 功能:breakpoints
+*/
+@each $key, $val in $breakpoints {
+    /**
+  * 功能:fajc-lg
+  */
+    .fajc-#{$key} {
+        @include bk_min($val) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    /**
+  * 功能:overflow-lg-auto
+  */
+    .overflow-#{$key}-auto {
+        @include bk_min($val) {
+            overflow: auto !important;
+        }
+    }
+    /**
+  * 功能:overflow-lg-visible
+  */
+    .overflow-#{$key}-visible {
+        @include bk_min($val) {
+            overflow: visible !important;
+        }
+    }
+    /**
+  * 功能:overflow-lg-hidden
+  */
+    .overflow-#{$key}-hidden {
+        @include bk_min($val) {
+            overflow: hidden !important;
+        }
+    }
+    .flex-grow-#{$key}-0 {
+        @include bk_min($val) {
+            flex-grow: 0 !important;
+        }
+    }
+    .flex-grow-#{$key}-1 {
+        @include bk_min($val) {
+            flex-grow: 1 !important;
+        }
+    }
+}
+.pointer {
+    cursor: pointer;
+}

@@ -1,0 +1,13 @@
+@import '/src/assets/sass/custom/v.scss';
+// @import '/src/assets/sass/custom/rv.scss';
+._smart-bar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    gap: 16px;
+    padding: 1em;
+    width: 100%;
+    justify-content: center;
+    color: var(--color--bg-default);
+}

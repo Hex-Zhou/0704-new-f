@@ -1,0 +1,16 @@
+<div class="wrapper d-flex flex-column">
+    <!-- smartBar -->
+    <div *ngIf="SmartBar_boo">
+        <app-smart-bar (onX)="closeSmartBar()" #smartBar></app-smart-bar>
+    </div>
+    <!-- header -->
+    <div class="_header_container" #header><app-header></app-header></div>
+    <!-- content -->
+    <div class="flex-grow-1">
+        <router-outlet></router-outlet>
+    </div>
+    <!-- footer -->
+    <app-footer></app-footer>
+</div>
+<!--  cookieBar -->
+<app-cookie-bar></app-cookie-bar>

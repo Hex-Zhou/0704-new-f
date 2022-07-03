@@ -1,0 +1,24 @@
+<header class="d-flex p-4">
+    <div>
+        <a routerLink="" class="btn btn-success">首頁</a>
+    </div>
+
+    <div class="ms-auto d-flex gap-3">
+        <div *ngIf="member$ | async">
+            <app-ikea-card hostClass="h-100 fajc ">
+                <img
+                    class="max-w-40px ratio-1x1"
+                    content
+                    [src]="(member$ | async)?.mugshot | imgFullPipe"
+                    alt="大頭" />
+            </app-ikea-card>
+        </div>
+        <div *ngIf="member$ | async">
+            <app-ikea-card hostClass="h-100 fajc px-3"
+                ><span content>{{ (member$ | async)?.name }}</span></app-ikea-card
+            >
+        </div>
+        <a *ngIf="!(member$ | async)" routerLink="/auth/login" class="btn btn-default fajc">登入</a>
+        <a *ngIf="member$ | async" routerLink="/auth/logout" class="btn btn-default fajc">登出</a>
+    </div>
+</header>

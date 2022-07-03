@@ -1,0 +1,33 @@
+<div class="container" [formGroup]="form">
+    <app-auth-form-group name="帳號">
+        <input
+            formControlName="account"
+            type="text"
+            class="form-control"
+            [ngClass]="{ 'in-valid': isInValidControl(form.controls.account) }" />
+        <small *ngIf="isInValidControl(form.controls.account)" class="text-danger">{{
+            errorsDescription(form.controls.account)
+        }}</small>
+    </app-auth-form-group>
+    <app-auth-form-group name="密碼">
+        <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            [ngClass]="{ 'in-valid': isInValidControl(form.controls.password) }" />
+        <small *ngIf="isInValidControl(form.controls.password)" class="text-danger">{{
+            errorsDescription(form.controls.password)
+        }}</small>
+    </app-auth-form-group>
+
+    <div class="form-group mt-3 row">
+        <div class="col-auto ms-auto gap-3 d-flex">
+            <a class="btn btn-danger" routerLink="/auth/register">忘記密碼</a>
+            <a class="btn btn-warning" routerLink="/auth/register">註冊</a>
+            <a class="btn btn-success" (click)="submitClick()">登入</a>
+        </div>
+    </div>
+</div>
+<ngx-spinner bdColor="rgb(0,0,0,.9)" size="large" color="#fff" type="pacman" [fullScreen]="true">
+    <p style="color: white">請稍等...</p>
+</ngx-spinner>

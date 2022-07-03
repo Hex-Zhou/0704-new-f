@@ -1,0 +1,5 @@
+@import '/src/assets/sass/custom/v.scss';
+input.in-valid {
+    border: 1px solid $danger;
+    box-shadow: 1px 1px 4px 4px $danger;
+}
