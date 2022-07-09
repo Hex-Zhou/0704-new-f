@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'app-billboard-area',
-  templateUrl: './billboard-area.component.html',
-  styleUrls: ['./billboard-area.component.scss']
+    selector: 'app-billboard-area',
+    templateUrl: './billboard-area.component.html',
+    styleUrls: ['./billboard-area.component.scss'],
 })
 export class BillboardAreaComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
 }

@@ -16,7 +16,9 @@ const ExceptionPath = ['login', 'members/auth', 'members-signup']
 export class HttpInterceptorService {
     private auth = inject(AuthService)
     expired$ = new Subject()
-    constructor() {}
+    constructor() {
+        this.subscribeTokenExpired()
+    }
     //
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let authorization = 'Bearer ' + this.auth.getData.AccessToken()
@@ -29,18 +31,21 @@ export class HttpInterceptorService {
         }
         const authReq = req.clone({ url: reqUrl, setHeaders: { Authorization: authorization } })
         return next.handle(authReq).pipe(
-            tap((event: any) => {
-                if (event instanceof HttpResponse) {
-                    console.log({ url: event.url })
+            tap(
+                () => {},
+                (event: any) => {
+                    if (event instanceof HttpResponse) {
+                        console.log({ url: event.url })
+                    }
+                    const condition1 = event instanceof HttpErrorResponse
+                    const condition2 = event.status === 401
+                    const condition3 = event.error.msg == '驗證Token失敗'
+
+                    if (condition1 && condition2 && condition3) {
+                        this.expired$.next('expired')
+                    }
                 }
-                if (
-                    event instanceof HttpErrorResponse &&
-                    event.status === 401 &&
-                    event.error.msg == '驗證Token失敗'
-                ) {
-                    this.expired$.next('expired')
-                }
-            })
+            )
         )
     }
     //
