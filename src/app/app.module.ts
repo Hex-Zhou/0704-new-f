@@ -1,3 +1,4 @@
+import { rootReducers } from './shared/ngrx/index'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
@@ -8,6 +9,10 @@ import { HttpInterceptorService } from './shared/service/complex/http-intercepto
 import { LayoutModule } from './views/layout/layout.module'
 // lib
 import { NgxSpinnerModule } from 'ngx-spinner'
+import { StoreModule } from '@ngrx/store'
+import { EffectsModule } from '@ngrx/effects'
+import { EffectsClass } from '@shared/ngrx/effect'
+import { StoreDevtools, StoreDevtoolsModule } from '@ngrx/store-devtools'
 //
 
 @NgModule({
@@ -19,6 +24,9 @@ import { NgxSpinnerModule } from 'ngx-spinner'
         NgxSpinnerModule.forRoot(),
         LayoutModule,
         BrowserAnimationsModule,
+        StoreModule.forRoot(rootReducers),
+        EffectsModule.forRoot([EffectsClass]),
+        StoreDevtoolsModule.instrument({}),
     ],
     providers: [
         {
